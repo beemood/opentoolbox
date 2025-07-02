@@ -1,12 +1,13 @@
+import type {
+  Tree} from '@nx/devkit';
 import {
   formatFiles,
   generateFiles,
   names,
-  readProjectConfiguration,
-  Tree,
+  readProjectConfiguration
 } from '@nx/devkit';
 import * as path from 'path';
-import { CommandGeneratorSchema } from './schema';
+import type { CommandGeneratorSchema } from './schema';
 
 export async function commandGenerator(
   tree: Tree,

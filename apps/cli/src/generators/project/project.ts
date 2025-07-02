@@ -1,6 +1,7 @@
-import { formatFiles, generateFiles, names, Tree } from '@nx/devkit';
+import type { Tree } from '@nx/devkit';
+import { formatFiles, generateFiles, names } from '@nx/devkit';
 import * as path from 'path';
-import { ProjectGeneratorSchema } from './schema';
+import type { ProjectGeneratorSchema } from './schema';
 import { readPackageJsonFile } from '../../helpers/read-package-json-file';
 import { createProjectName } from '../../helpers/create-project-name';
 import { updateTsconfigRef } from '../../helpers/update-tsconfig-rf';

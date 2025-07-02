@@ -1,6 +1,6 @@
 import { readdir, stat } from 'fs/promises';
 import { resolve } from 'path';
-import { Directory } from '@opentoolbox/types';
+import type { Directory } from '@opentoolbox/types';
 
 export type DirsOptions = {
   recursive?: boolean;

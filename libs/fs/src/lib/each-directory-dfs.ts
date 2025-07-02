@@ -1,5 +1,5 @@
-import { EachHandler } from '@opentoolbox/types';
-import { Directory } from '@opentoolbox/types';
+import type { EachHandler } from '@opentoolbox/types';
+import type { Directory } from '@opentoolbox/types';
 
 /**
  * Visit each directory and files starting from the deepest files/directories and run {@link handler} function

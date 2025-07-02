@@ -72,6 +72,9 @@ importers:
       eslint-config-prettier:
         specifier: ^10.0.0
         version: 10.1.5(eslint@9.30.1)
+      eslint-plugin-spellcheck:
+        specifier: ^0.0.20
+        version: 0.0.20(eslint@9.30.1)
       jest:
         specifier: ^29.7.0
         version: 29.7.0(@types/node@18.16.20)(babel-plugin-macros@3.1.0)(ts-node@10.9.1(@swc/core@1.5.29(@swc/helpers@0.5.17))(@types/node@18.16.20)(typescript@5.8.3))
@@ -124,8 +127,8 @@ importers:
   libs/fs:
     dependencies:
       '@opentoolbox/types':
-        specifier: ^0.0.3
-        version: 0.0.3
+        specifier: workspace:^
+        version: link:../types
       js-yaml:
         specifier: ^4.1.0
         version: 4.1.0
@@ -1287,9 +1290,6 @@ packages:
   '@nx/workspace@21.2.1':
     resolution: {integrity: sha512-tJMD4ELFZI1bbfcDz+k89MB1GumTVkwDVMicPBZwIlXTVqKQDgJmGUYIMF7VgU499WcX08LQAwVlIjvGX07GMw==}
 
-  '@opentoolbox/types@0.0.3':
-    resolution: {integrity: sha512-EYJaRXbbeP5ZtykBICurpGGSGmEldVE5DGodaObSxU/NVT/GW5nMLnJ5kg1jMMa9OG5dHvMgWj9qV7MbfFztuQ==}
-
   '@phenomnomnominal/tsquery@5.0.1':
     resolution: {integrity: sha512-3nVv+e2FQwsW8Aw6qTU6f+1rfcJ3hrcnvH/mu9i8YhxO+9sqbOfpL8m6PbET5+xKOlz/VSbp0RoYWYCtIsnmuA==}
     peerDependencies:
@@ -2336,6 +2336,11 @@ packages:
     peerDependencies:
       eslint: '>=7.0.0'
 
+  eslint-plugin-spellcheck@0.0.20:
+    resolution: {integrity: sha512-GJa6vgzWAYqe0elKADAsiBRrhvqBnKyt7tpFSqlCZJsK2W9+K80oMyHhKolA7vJ13H5RCGs5/KCN+mKUyKoAiA==}
+    peerDependencies:
+      eslint: '>=0.8.0'
+
   eslint-scope@8.4.0:
     resolution: {integrity: sha512-sNXOfKCn74rt8RICKMvJS7XKV/Xk9kA7DyJr8mJik3S7Cwgy3qlkkmyS2uQB3jiJg6VNdZd/pDBJu0nvG2NlTg==}
     engines: {node: ^18.18.0 || ^20.9.0 || >=21.1.0}
@@ -2615,6 +2620,10 @@ packages:
     resolution: {integrity: sha512-nFR0zLpU2YCaRxwoCJvL6UvCH2JFyFVIvwTLsIf21AuHlMskA1hhTdk+LlYJtOlYt9v6dvszD2BGRqBL+iQK9Q==}
     deprecated: Glob versions prior to v9 are no longer supported
 
+  globals@13.24.0:
+    resolution: {integrity: sha512-AhO5QUcj8llrbG09iWhPU2B204J1xnPeL8kQmVorSsy+Sjj1sk8gIyh6cUocGmH4L0UuhAJy+hJMRA4mgA4mFQ==}
+    engines: {node: '>=8'}
+
   globals@14.0.0:
     resolution: {integrity: sha512-oahGvuMGQlPw/ivIYBjVSrWAfWLBeku5tpPE2fOPLi+WHffIWbuh2tCjhyQhTBPMf5E9jDEH4FOmTYgYwbKwtQ==}
     engines: {node: '>=18'}
@@ -2700,6 +2709,10 @@ packages:
   human-signals@2.1.0:
     resolution: {integrity: sha512-B4FFZ6q/T2jhhksgkbEW3HBvWIfDW85snkQgawt07S7J5QXTk6BkNV+0yAeZrM5QpMAdYlocGoljn0sJ/WQkFw==}
     engines: {node: '>=10.17.0'}
+
+  hunspell-spellchecker@1.0.2:
+    resolution: {integrity: sha512-4DwmFAvlz+ChsqLDsZT2cwBsYNXh+oWboemxXtafwKIyItq52xfR4e4kr017sLAoPaSYVofSOvPUfmOAhXyYvw==}
+    hasBin: true
 
   iconv-lite@0.4.24:
     resolution: {integrity: sha512-v3MXnZAcvnywkTUEZomIActle7RXXeedOR31wwl7VlyoXO4Qi9arvSenNQWne1TcRwhCL1HwLI21bEqdpj8/rA==}
@@ -4004,6 +4017,10 @@ packages:
   type-detect@4.0.8:
     resolution: {integrity: sha512-0fr/mIH1dlO+x7TlcMy+bIDqKPsw/70tVyeHW787goQjhmqaZe10uwLujubK9q9Lg6Fiho1KUKDYz0Z7k7g5/g==}
     engines: {node: '>=4'}
+
+  type-fest@0.20.2:
+    resolution: {integrity: sha512-Ne+eE4r0/iWnpAxD852z3A+N0Bt5RN//NjJwRd2VFHEmrywxf5vsZlh4R6lixl6B+wz/8d+maTSAkN1FIkI3LQ==}
+    engines: {node: '>=10'}
 
   type-fest@0.21.3:
     resolution: {integrity: sha512-t0rzBq87m3fVcduHDUFhKmyyX+9eo6WQjZvf51Ea/M0Q7+T374Jp1aUiyUl0GKxp8M/OETVHSDvmkyPgvX+X2w==}
@@ -5694,8 +5711,6 @@ snapshots:
       - '@swc/core'
       - debug
 
-  '@opentoolbox/types@0.0.3': {}
-
   '@phenomnomnominal/tsquery@5.0.1(typescript@5.8.3)':
     dependencies:
       esquery: 1.6.0
@@ -6882,6 +6897,13 @@ snapshots:
     dependencies:
       eslint: 9.30.1
 
+  eslint-plugin-spellcheck@0.0.20(eslint@9.30.1):
+    dependencies:
+      eslint: 9.30.1
+      globals: 13.24.0
+      hunspell-spellchecker: 1.0.2
+      lodash: 4.17.21
+
   eslint-scope@8.4.0:
     dependencies:
       esrecurse: 4.3.0
@@ -7217,6 +7239,10 @@ snapshots:
       once: 1.4.0
       path-is-absolute: 1.0.1
 
+  globals@13.24.0:
+    dependencies:
+      type-fest: 0.20.2
+
   globals@14.0.0: {}
 
   globals@15.15.0: {}
@@ -7312,6 +7338,8 @@ snapshots:
       - supports-color
 
   human-signals@2.1.0: {}
+
+  hunspell-spellchecker@1.0.2: {}
 
   iconv-lite@0.4.24:
     dependencies:
@@ -8769,6 +8797,8 @@ snapshots:
       prelude-ls: 1.2.1
 
   type-detect@4.0.8: {}
+
+  type-fest@0.20.2: {}
 
   type-fest@0.21.3: {}
 
