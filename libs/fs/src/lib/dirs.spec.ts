@@ -2,7 +2,7 @@ import { workspaceRoot } from '@nx/devkit';
 import { mkdir, rm } from 'fs/promises';
 import { resolve } from 'path';
 import { writeTextFile } from './write-text-file.js';
-import { Directory, dirs } from './dirs.js';
+import { dirs } from './dirs.js';
 
 describe('dirs', () => {
   const rootdir = resolve(workspaceRoot, 'tmp', 'test', 'fs', 'dirs', 'test');

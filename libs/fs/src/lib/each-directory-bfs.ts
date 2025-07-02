@@ -1,5 +1,5 @@
 import { EachHandler } from '@opentoolbox/types';
-import { Directory } from './dirs.js';
+import { Directory } from '@opentoolbox/types';
 
 /**
  * Visit each directory and files starting from the top level directories and run {@link handler} function
