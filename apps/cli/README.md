@@ -2,7 +2,7 @@
   <img src="https://raw.githubusercontent.com/beemood/opentoolbox/refs/heads/main/apps/cli/favicon.png" alt="Logo" />
 </p>
 
-# [@opentoolbox/cli](https://beemood.github.io/opentoolbox/public/apps/cli)
+# [@opentoolbox/cli](https://beemood.github.io/opentoolbox/apps/cli)
 
 ## Summary
 

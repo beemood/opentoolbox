@@ -1,7 +1,7 @@
 {
   "name": "@opentoolbox/cli",
   "description": "cli",
-  "version": "0.0.1",
+  "version": "0.0.1-beta",
   "author": {
     "name": "Robert Brightline",
     "email": "robert.brightline@gmail.com",
@@ -11,7 +11,11 @@
     "https://cash.app/$puqlib"
   ],
   "icon": "https://raw.githubusercontent.com/beemood/opentoolbox/refs/heads/main/apps/cli/favicon.png",
-  "homepage": "https://beemood.github.io/opentoolbox",
+  "homepage": "https://beemood.github.io/opentoolbox/cli",
+  "publishConfig": {
+    "access": "public",
+    "tag": "latest"
+  },
   "bin": {
     "toolbox": "./bin/toolbox.mjs"
   },

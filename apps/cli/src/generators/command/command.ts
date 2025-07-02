@@ -1,6 +1,7 @@
 import {
   formatFiles,
   generateFiles,
+  getProjects,
   names,
   readProjectConfiguration,
   Tree,
