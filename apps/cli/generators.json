@@ -1,0 +1,9 @@
+{
+  "generators": {
+    "command": {
+      "factory": "./dist/generators/command/command",
+      "schema": "./dist/generators/command/schema.json",
+      "description": "command generator"
+    }
+  }
+}

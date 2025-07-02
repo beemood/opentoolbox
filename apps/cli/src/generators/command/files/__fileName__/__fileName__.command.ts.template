@@ -1,0 +1,24 @@
+import { Command } from 'commander';
+
+export type <%- className %>CommandArgs = {
+  name: string;
+};
+
+export class <%- className %>Command {
+  static readonly COMMAND_NAME = '<%- fileName %>';
+  static readonly COMMAND_DESCRIPTION = 'Say <%- fileName %>';
+
+  constructor(protected readonly program: Command) {}
+
+  handle(args: <%- className %>CommandArgs) {
+    console.log(`<%- className %>, ${args.name}`);
+  }
+
+  parse() {
+    this.program
+      .command(<%- className %>Command.COMMAND_NAME)
+      .description(<%- className %>Command.COMMAND_DESCRIPTION)
+      .requiredOption('-n, --name <string> username')
+      .action(this.handle);
+  }
+}

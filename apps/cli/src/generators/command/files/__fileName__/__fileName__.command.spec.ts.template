@@ -1,0 +1,18 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
+import { <%- className %>Command } from './<%- fileName %>.command.js';
+
+describe('<%- className %>Command', () => {
+  const program: any = {};
+  const instance = new <%- className %>Command(program);
+
+  it('should initialize', () => {
+    expect(instance).toBeDefined();
+  });
+
+  it('should handle', () => {
+    const log = jest.spyOn(console, 'log');
+    instance.handle({ name: 'Robert' });
+    expect(log).toHaveBeenCalledTimes(1);
+    expect(log).toHaveBeenCalledWith(`<%- className %>, Robert`);
+  });
+});

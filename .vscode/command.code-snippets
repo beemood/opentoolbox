@@ -1,0 +1,56 @@
+{
+  "command": {
+    "prefix": "command",
+    "body": [
+      "import { Command } from 'commander';",
+      "",
+      "export type $1CommandArgs = {",
+      "  name: string;",
+      "};",
+      "",
+      "export class $1Command {",
+      "  static readonly COMMAND_NAME = '$2';",
+      "  static readonly COMMAND_DESCRIPTION = '$3';",
+      "",
+      "  constructor(protected readonly program: Command) {}",
+      "",
+      "  handle(args: $1CommandArgs) {",
+      "     $0",
+      "  }",
+      "",
+      "  parse() {",
+      "    this.program",
+      "      .command($1Command.COMMAND_NAME)",
+      "      .description($1Command.COMMAND_DESCRIPTION)",
+      "      .requiredOption('-n, --name <string> username')",
+      "      .action(this.handle);",
+      "  }",
+      "}"
+    ],
+    "scope": "typescript"
+  },
+  "command test": {
+    "prefix": "command test",
+    "body": [
+      "/* eslint-disable @typescript-eslint/no-explicit-any */",
+      "import { $1Command } from './$2.command';",
+      "",
+      "describe('$1Command', () => {",
+      "  const program: any = {};",
+      "  const instance = new $1Command(program);",
+      "",
+      "  it('should initialize', () => {",
+      "    expect(instance).toBeDefined();",
+      "  });",
+      "",
+      "  it('should handle', () => {",
+      "    const log = jest.spyOn(console, 'log');",
+      "    instance.handle({ name: 'Robert' });",
+      "    expect(log).toHaveBeenCalledTimes(1);",
+      "    expect(log).toHaveBeenCalledWith(`$1, Robert`);",
+      "  });",
+      "});"
+    ],
+    "scope": "typescript"
+  }
+}
