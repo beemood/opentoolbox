@@ -1,7 +1,7 @@
 {
   "name": "@opentoolbox/fs",
   "description": "IO library for reading, writing common files",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "author": {
     "name": "Robert Brightline",
     "email": "robert.brightline@gmail.com",
@@ -56,7 +56,7 @@
     }
   },
   "dependencies": {
-    "@opentoolbox/types": "^0.0.2",
+    "@opentoolbox/types": "^0.0.3",
     "js-yaml": "^4.1.0"
   },
   "devDependencies": {
