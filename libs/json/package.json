@@ -1,7 +1,7 @@
 {
   "name": "@opentoolbox/json",
   "description": "A Powerful JSON Schema Bundler for Modern Schemas",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "author": {
     "name": "Robert Brightline",
     "email": "robert.brightline@gmail.com",
