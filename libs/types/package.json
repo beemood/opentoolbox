@@ -1,6 +1,6 @@
 {
   "name": "@opentoolbox/types",
-  "description": "- [ ] add description",
+  "description": "Common types and interfaces",
   "version": "0.0.3",
   "author": {
     "name": "Robert Brightline",
