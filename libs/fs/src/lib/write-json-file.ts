@@ -1,10 +1,13 @@
-import { writeFile } from 'fs/promises';
+import { writeTextFile } from './write-text-file.js';
 
+/**
+ * Write json file
+ * @param filepath filepath
+ * @param content json object
+ */
 export async function writeJsonFile<T extends object>(
   filepath: string,
   content: T
 ) {
-  return await writeFile(filepath, JSON.stringify(content), {
-    encoding: 'utf-8',
-  });
+  await writeTextFile(filepath, JSON.stringify(content));
 }

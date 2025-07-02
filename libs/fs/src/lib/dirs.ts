@@ -12,17 +12,23 @@ export type DirsOptions = {
   recursive?: boolean;
 };
 
+/**
+ * Scan the {@link rootDirectory}, find all files and directories, and map it to the {@link Directory} object
+ * @param rootDirectory root directory to scan
+ * @param options options {@link DirsOptions}
+ * @returns directories {@link Directory}[]
+ */
 export async function dirs(
-  rootdir: string,
+  rootDirectory: string,
   options?: DirsOptions
 ): Promise<Directory[]> {
-  const foundDirs = await readdir(rootdir, { encoding: 'utf-8' });
+  const foundDirs = await readdir(rootDirectory, { encoding: 'utf-8' });
   const { recursive } = options || {};
 
   const directories: Directory[] = [];
 
   for (const currentDir of foundDirs) {
-    const path = resolve(rootdir, currentDir);
+    const path = resolve(rootDirectory, currentDir);
     const fileStat = await stat(path);
 
     const isFile = fileStat.isFile();
