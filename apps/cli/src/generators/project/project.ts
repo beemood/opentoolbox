@@ -1,14 +1,9 @@
-import {
-  addProjectConfiguration,
-  formatFiles,
-  generateFiles,
-  names,
-  readJsonFile,
-  Tree,
-  workspaceRoot,
-} from '@nx/devkit';
+import { formatFiles, generateFiles, names, Tree } from '@nx/devkit';
 import * as path from 'path';
 import { ProjectGeneratorSchema } from './schema';
+import { readPackageJsonFile } from '../../helpers/read-package-json-file';
+import { createProjectName } from '../../helpers/create-project-name';
+import { updateTsconfigRef } from '../../helpers/update-tsconfig-rf';
 
 export async function projectGenerator(
   tree: Tree,
@@ -18,19 +13,20 @@ export async function projectGenerator(
 
   const __names = names(name);
   const projectParentDirectory = type === 'lib' ? 'libs' : 'apps';
-  const packageJSON = await readJsonFile(
-    path.join(workspaceRoot, 'package.json')
-  );
-  const [projectNamePrefix] = packageJSON.name.split('/');
+  const packageJSON = await readPackageJsonFile();
 
-  const source = path.join(__dirname, 'files');
-  const projectDirectory = path.join(projectParentDirectory, __names.fileName);
-  const projectName = `${projectNamePrefix}/${__names.fileName}`;
+  const source = path.join(__dirname, type);
+  const projectDirectory = `${projectParentDirectory}/${__names.fileName}`;
+  const projectName = createProjectName(__names.fileName, packageJSON.name);
 
   generateFiles(tree, source, projectDirectory, {
     projectDirectory,
     projectName,
+    mp: packageJSON,
   });
+
+  await updateTsconfigRef(projectDirectory);
+
   await formatFiles(tree);
 }
 

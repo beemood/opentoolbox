@@ -12,6 +12,7 @@
   "funding": [
     "https://cash.app/$puqlib"
   ],
+  "content": "https://raw.githubusercontent.com/beemood/opentoolbox/refs/heads/main/",
   "icon": "https://raw.githubusercontent.com/beemood/opentoolbox/refs/heads/main/favicon.png",
   "keywords": [
     "tools",

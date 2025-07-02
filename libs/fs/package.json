@@ -1,6 +1,6 @@
 {
-  "name": "@opentoolbox/json",
-  "description": "A Powerful JSON Schema Bundler for Modern Schemas",
+  "name": "@opentoolbox/fs",
+  "description": "IO library for reading, writing common files",
   "version": "0.0.1",
   "author": {
     "name": "Robert Brightline",
@@ -10,8 +10,8 @@
   "funding": [
     "https://cash.app/$puqlib"
   ],
-  "icon": "https://raw.githubusercontent.com/beemood/opentoolbox/refs/heads/main/libs/json/favicon.png",
-  "homepage": "https://beemood.github.io/opentoolbox/libs/json",
+  "icon": "https://raw.githubusercontent.com/beemood/opentoolbox/refs/heads/main//libs/fs/favicon.png",
+  "homepage": "https://beemood.github.io/libs/fs",
   "publishConfig": {
     "access": "public",
     "tag": "latest"
@@ -41,18 +41,24 @@
           "{options.outputPath}"
         ],
         "options": {
-          "outputPath": "libs/json/dist",
-          "main": "libs/json/src/index.ts",
-          "tsConfig": "libs/json/tsconfig.lib.json",
+          "outputPath": "libs/fs/dist",
+          "main": "libs/fs/src/index.ts",
+          "tsConfig": "libs/fs/tsconfig.lib.json",
           "format": [
             "esm"
           ],
-          "declarationRootDir": "libs/json/src"
+          "declarationRootDir": "libs/fs/src"
         }
       },
       "doc": {
         "command": "npx typedoc --entryPoints {projectRoot}/src/index.ts --out public/{projectRoot} --tsconfig {projectRoot}/tsconfig.lib.json"
       }
     }
+  },
+  "dependencies": {
+    "js-yaml": "^4.1.0"
+  },
+  "devDependencies": {
+    "@types/js-yaml": "^4.0.9"
   }
 }

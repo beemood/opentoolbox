@@ -1,17 +1,11 @@
 {
-  "name": "@opentoolbox/json",
-  "description": "A Powerful JSON Schema Bundler for Modern Schemas",
-  "version": "0.0.1",
-  "author": {
-    "name": "Robert Brightline",
-    "email": "robert.brightline@gmail.com",
-    "url": "https://beemood.github.io"
-  },
-  "funding": [
-    "https://cash.app/$puqlib"
-  ],
-  "icon": "https://raw.githubusercontent.com/beemood/opentoolbox/refs/heads/main/libs/json/favicon.png",
-  "homepage": "https://beemood.github.io/opentoolbox/libs/json",
+  "name": "<%- projectName %>",
+  "description": "- [ ] add description",
+  "version": "<%- mp.version %>",
+  "author": <%- JSON.stringify(mp.author) %>,
+  "funding":<%- JSON.stringify(mp.funding) %>,
+  "icon": "<%- mp.content %>/<%- projectDirectory %>/favicon.png",
+  "homepage": "<%- mp.homepage %>/<%- projectDirectory %>",
   "publishConfig": {
     "access": "public",
     "tag": "latest"
@@ -41,13 +35,13 @@
           "{options.outputPath}"
         ],
         "options": {
-          "outputPath": "libs/json/dist",
-          "main": "libs/json/src/index.ts",
-          "tsConfig": "libs/json/tsconfig.lib.json",
+          "outputPath": "<%- projectDirectory %>/dist",
+          "main": "<%- projectDirectory %>/src/index.ts",
+          "tsConfig": "<%- projectDirectory %>/tsconfig.lib.json",
           "format": [
             "esm"
           ],
-          "declarationRootDir": "libs/json/src"
+          "declarationRootDir": "<%- projectDirectory %>/src"
         }
       },
       "doc": {
