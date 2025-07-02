@@ -1,0 +1,18 @@
+{
+  "$schema": "https://json-schema.org/draft-07/schema#",
+  "title": "Model",
+  "properties": {
+    "properties": {
+      "patternProperties": {
+        "[a-zA-Z]{1,}": {
+          "$ref": "#/definitions/Property"
+        }
+      }
+    }
+  },
+  "definitions": {
+    "Property": {
+      "$ref": "./property/property.schema.json"
+    }
+  }
+}

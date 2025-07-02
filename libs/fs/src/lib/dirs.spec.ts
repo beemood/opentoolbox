@@ -7,7 +7,7 @@ import { dirs } from './dirs.js';
 describe('dirs', () => {
   const rootdir = resolve(workspaceRoot, 'tmp', 'test', 'fs', 'dirs', 'test');
   const testDirs = ['dir1', 'dir2'];
-  const testFiles = ['dir1/fie1.txt', 'dir1/fie2.txt'];
+  const testFiles = ['dir1/fie1.txt', 'dir1/fie2.json'];
 
   beforeAll(async () => {
     for (const filepath of testDirs) {
@@ -60,5 +60,14 @@ describe('dirs', () => {
     expect(foundDirsRecursive[1].isDirectory).toBeTruthy();
     expect(foundDirsRecursive[1].isFile).toBeFalsy();
     expect(foundDirsRecursive[1].path).toEqual(resolve(rootdir, testDirs[1]));
+  });
+
+  it('should find all files/directories by expression', async () => {
+    const foundDirsRecursive = await dirs(rootdir, {
+      recursive: true,
+      expression: /txt$/,
+    });
+
+    expect(foundDirsRecursive[0].children?.length).toEqual(1);
   });
 });

@@ -108,4 +108,5 @@ export default [
   'dfs',
   'bfs',
   'utf',
+  'schemas',
 ];

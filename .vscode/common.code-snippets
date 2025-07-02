@@ -1,0 +1,12 @@
+{
+  "shebang executable": {
+    "prefix": "shebang executable",
+    "body": "#!/usr/bin/env node",
+    "scope": "typescript,javascript"
+  },
+  "export all": {
+    "prefix": "export all",
+    "body": "// @index(['./**/*.ts', '!./**/*.{spec,test}.ts'], f => `export * from '${f.path}.js'`)",
+    "scope": "typescript"
+  }
+}

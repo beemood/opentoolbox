@@ -7,3 +7,4 @@ export * from './common/key-of.js';
 export * from './common/keys.js';
 export * from './common/map-handler.js';
 export * from './common/some.js';
+export * from './schema/json-schema.js';
