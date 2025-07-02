@@ -127,7 +127,7 @@ importers:
   libs/fs:
     dependencies:
       '@opentoolbox/types':
-        specifier: workspace:^
+        specifier: workspace:*
         version: link:../types
       js-yaml:
         specifier: ^4.1.0
@@ -140,6 +140,12 @@ importers:
   libs/json: {}
 
   libs/types: {}
+
+  libs/utils:
+    dependencies:
+      '@opentoolbox/types':
+        specifier: workspace:*
+        version: link:../types
 
 packages:
 

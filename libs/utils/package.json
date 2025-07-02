@@ -1,6 +1,6 @@
 {
-  "name": "@opentoolbox/fs",
-  "description": "IO library for reading, writing common files",
+  "name": "@opentoolbox/utils",
+  "description": "Common utilities",
   "version": "0.0.3",
   "author": {
     "name": "Robert Brightline",
@@ -10,8 +10,8 @@
   "funding": [
     "https://cash.app/$puqlib"
   ],
-  "icon": "https://raw.githubusercontent.com/beemood/opentoolbox/refs/heads/main//libs/fs/favicon.png",
-  "homepage": "https://beemood.github.io/libs/fs",
+  "icon": "https://raw.githubusercontent.com/beemood/opentoolbox/refs/heads/main//libs/utils/favicon.png",
+  "homepage": "https://beemood.github.io/libs/utils",
   "publishConfig": {
     "access": "public",
     "tag": "latest"
@@ -41,13 +41,13 @@
           "{options.outputPath}"
         ],
         "options": {
-          "outputPath": "libs/fs/dist",
-          "main": "libs/fs/src/index.ts",
-          "tsConfig": "libs/fs/tsconfig.lib.json",
+          "outputPath": "libs/utils/dist",
+          "main": "libs/utils/src/index.ts",
+          "tsConfig": "libs/utils/tsconfig.lib.json",
           "format": [
             "esm"
           ],
-          "declarationRootDir": "libs/fs/src"
+          "declarationRootDir": "libs/utils/src"
         }
       },
       "doc": {
@@ -56,10 +56,6 @@
     }
   },
   "dependencies": {
-    "@opentoolbox/types": "workspace:*",
-    "js-yaml": "^4.1.0"
-  },
-  "devDependencies": {
-    "@types/js-yaml": "^4.0.9"
+    "@opentoolbox/types": "workspace:*"
   }
 }
