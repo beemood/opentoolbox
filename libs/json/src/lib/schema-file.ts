@@ -1,4 +1,4 @@
-import { JsonSchema } from '@opentoolbox/types';
+import type { JsonSchema } from '@opentoolbox/types';
 
 export type SchemaFile = {
   dirpath: string;
