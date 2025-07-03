@@ -1,0 +1,8 @@
+{
+  "$schema": "https://typedoc.org/schema.json",
+  "externalSymbolLinkMappings": {
+    "global": {
+      "HomePage": "https://beemood.github.io/libs/errors"
+    }
+  }
+}

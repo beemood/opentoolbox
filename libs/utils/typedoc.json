@@ -2,7 +2,9 @@
   "$schema": "https://typedoc.org/schema.json",
   "externalSymbolLinkMappings": {
     "global": {
-      "Directory": "https://beemood.github.io/opentoolbox/libs/types/types/Directory.html"
+      "Directory": "https://beemood.github.io/opentoolbox/libs/types/types/Directory.html",
+      "Some": "https://beemood.github.io/opentoolbox/libs/types/types/Some.html",
+      "ValueRequiredError": "https://beemood.github.io/opentoolbox/libs/errors/ValueRequiredError.html"
     }
   }
 }

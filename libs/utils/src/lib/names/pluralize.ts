@@ -1,7 +1,8 @@
+/* eslint-disable spellcheck/spell-checker */
 /**
- * Pluralize the given string following (english) grammer
+ * Pluralize the given string
  * @param name name to pluralize
- * @returns
+ * @returns string
  */
 export function pluralize(name: string): string {
   const lowercase = name.toLowerCase();

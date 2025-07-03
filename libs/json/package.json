@@ -56,7 +56,9 @@
     }
   },
   "dependencies": {
+    "@opentoolbox/errors": "workspace:*",
     "@opentoolbox/fs": "workspace:*",
-    "@opentoolbox/types": "workspace:*"
+    "@opentoolbox/types": "workspace:*",
+    "@opentoolbox/utils": "workspace:*"
   }
 }

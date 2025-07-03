@@ -1,12 +1,16 @@
-import type { JsonSchema } from '@opentoolbox/types';
+import type { Directory } from '@opentoolbox/types';
 
-export type SchemaProjectOptions = {
+export type BundleOptions = {
   root: string;
   main: string;
 };
 
-export async function readSchemaProject(
-): Promise<JsonSchema[]> {
+/**
+ * Bundle schema
+ * @param options
+ * @returns list of directories {@link !Directory}[]
+ */
+export async function bundle(): Promise<Directory[]> {
   // 1. read all schema files under the root directory and store them with using dirs function
   // 2. make all $ref paths absolute
   // 3. turn all $ref into definition with $id/title value

@@ -1,6 +1,6 @@
 {
-  "name": "@opentoolbox/utils",
-  "description": "Common utilities",
+  "name": "@opentoolbox/errors",
+  "description": "- [ ] add description",
   "version": "0.0.4",
   "author": {
     "name": "Robert Brightline",
@@ -10,8 +10,8 @@
   "funding": [
     "https://cash.app/$puqlib"
   ],
-  "icon": "https://raw.githubusercontent.com/beemood/opentoolbox/refs/heads/main//libs/utils/favicon.png",
-  "homepage": "https://beemood.github.io/libs/utils",
+  "icon": "https://raw.githubusercontent.com/beemood/opentoolbox/refs/heads/main//libs/errors/favicon.png",
+  "homepage": "https://beemood.github.io/libs/errors",
   "publishConfig": {
     "access": "public",
     "tag": "latest"
@@ -41,22 +41,18 @@
           "{options.outputPath}"
         ],
         "options": {
-          "outputPath": "libs/utils/dist",
-          "main": "libs/utils/src/index.ts",
-          "tsConfig": "libs/utils/tsconfig.lib.json",
+          "outputPath": "libs/errors/dist",
+          "main": "libs/errors/src/index.ts",
+          "tsConfig": "libs/errors/tsconfig.lib.json",
           "format": [
             "esm"
           ],
-          "declarationRootDir": "libs/utils/src"
+          "declarationRootDir": "libs/errors/src"
         }
       },
       "doc": {
         "command": "npx typedoc --options {projectRoot}/typedoc.json --favicon {projectRoot}/favicon.png --entryPoints {projectRoot}/src/index.ts --out public/{projectRoot} --tsconfig {projectRoot}/tsconfig.lib.json"
       }
     }
-  },
-  "dependencies": {
-    "@opentoolbox/errors": "workspace:*",
-    "@opentoolbox/types": "workspace:*"
   }
 }

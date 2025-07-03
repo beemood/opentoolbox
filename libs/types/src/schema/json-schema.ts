@@ -1,5 +1,8 @@
-import { Any } from '../common/any.js';
+import type { Any } from '../common/any.js';
 
+/**
+ * Property type
+ */
 export type PropertyType =
   | 'string'
   | 'number'
@@ -9,6 +12,9 @@ export type PropertyType =
   | 'null'
   | 'array';
 
+/**
+ * Json scheme draft-7
+ */
 export type JsonSchema = {
   $comment?: string;
   $id?: string;

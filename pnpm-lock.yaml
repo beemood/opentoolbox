@@ -124,6 +124,8 @@ importers:
         specifier: ^2.3.0
         version: 2.8.1
 
+  libs/errors: {}
+
   libs/fs:
     dependencies:
       '@opentoolbox/types':
@@ -139,17 +141,26 @@ importers:
 
   libs/json:
     dependencies:
+      '@opentoolbox/errors':
+        specifier: workspace:*
+        version: link:../errors
       '@opentoolbox/fs':
         specifier: workspace:*
         version: link:../fs
       '@opentoolbox/types':
         specifier: workspace:*
         version: link:../types
+      '@opentoolbox/utils':
+        specifier: workspace:*
+        version: link:../utils
 
   libs/types: {}
 
   libs/utils:
     dependencies:
+      '@opentoolbox/errors':
+        specifier: workspace:*
+        version: link:../errors
       '@opentoolbox/types':
         specifier: workspace:*
         version: link:../types
