@@ -7,42 +7,23 @@
         "[a-zA-Z]{1,}": {
           "$ref": "#/definitions/Property"
         }
+      },
+      "propertyNames": {
+        "$ref": "#/definitions/PropertyName"
+      }
+    },
+    "relations": {
+      "patternProperties": {
+        "[a-zA-Z]{1,}": {
+          "$ref": "#/definitions/RelationProperty"
+        }
+      },
+      "propertyNames": {
+        "$ref": "#/definitions/PropertyName"
       }
     }
   },
   "definitions": {
-    "Property": {
-      "allOf": [
-        {
-          "$ref": "#/definitions/CommonProperty"
-        },
-        {
-          "oneOf": [
-            {
-              "$ref": "#/definitions/StringProperty"
-            },
-            {
-              "$ref": "#/definitions/NumberProperty"
-            },
-            {
-              "$ref": "#/definitions/IntegerProperty"
-            },
-            {
-              "$ref": "#/definitions/BooleanProperty"
-            },
-            {
-              "$ref": "#/definitions/ObjectProperty"
-            },
-            {
-              "$ref": "#/definitions/ArrayProperty"
-            }
-          ]
-        }
-      ],
-      "required": [
-        "type"
-      ]
-    },
     "Icon": {
       "enum": [
         "home"
@@ -69,6 +50,11 @@
         "percent"
       ]
     },
+    "OnDelete": {
+      "enum": [
+        "cascade"
+      ]
+    },
     "PropertyName": {
       "enum": [
         "id",
@@ -93,6 +79,14 @@
         "boolean",
         "object",
         "array"
+      ]
+    },
+    "RelationType": {
+      "enum": [
+        "one-to-one",
+        "one-to-many",
+        "many-to-many",
+        "many-to-one"
       ]
     },
     "StringFormat": {
@@ -232,6 +226,57 @@
         },
         "target": {
           "$ref": "#/definitions/ModelName"
+        }
+      },
+      "required": [
+        "type"
+      ]
+    },
+    "Property": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/CommonProperty"
+        },
+        {
+          "oneOf": [
+            {
+              "$ref": "#/definitions/StringProperty"
+            },
+            {
+              "$ref": "#/definitions/NumberProperty"
+            },
+            {
+              "$ref": "#/definitions/IntegerProperty"
+            },
+            {
+              "$ref": "#/definitions/BooleanProperty"
+            },
+            {
+              "$ref": "#/definitions/ObjectProperty"
+            },
+            {
+              "$ref": "#/definitions/ArrayProperty"
+            }
+          ]
+        }
+      ],
+      "required": [
+        "type"
+      ]
+    },
+    "RelationProperty": {
+      "properties": {
+        "type": {
+          "$ref": "#/definitions/RelationType"
+        },
+        "required": {
+          "type": "boolean"
+        },
+        "target": {
+          "$ref": "#/definitions/ModelName"
+        },
+        "onDelete": {
+          "$ref": "#/definitions/OnDelete"
         }
       },
       "required": [

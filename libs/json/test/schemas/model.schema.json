@@ -5,14 +5,30 @@
     "properties": {
       "patternProperties": {
         "[a-zA-Z]{1,}": {
-          "$ref": "#/definitions/Property"
+          "$ref": "./property/property.schema.json"
         }
+      },
+      "propertyNames": {
+        "$ref": "./enum/property-name.schema.json"
+      }
+    },
+    "relations": {
+      "patternProperties": {
+        "[a-zA-Z]{1,}": {
+          "$ref": "./property/relation-property.schema.json"
+        }
+      },
+
+      "propertyNames": {
+        "$ref": "./enum/property-name.schema.json"
+      }
+    },
+    "uniques": {
+      "type": "array",
+      "items": {
+        "$ref": "./enum/property-name.schem.json"
       }
     }
   },
-  "definitions": {
-    "Property": {
-      "$ref": "./property/property.schema.json"
-    }
-  }
+  "definitions": {}
 }

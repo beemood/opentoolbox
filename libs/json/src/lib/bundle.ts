@@ -45,8 +45,13 @@ export async function bundle(mainSchemaFilepath: string) {
       continue;
     }
     const definitionName = toDefinitionNameFromReferencePath(schemas[i].path);
-    delete schemas[i].content.$schema;
     mainSchema.content.definitions[definitionName] = schemas[i].content;
+    mainSchema.content.definitions = {
+      ...mainSchema.content.definitions,
+      ...schemas[i].content.definitions,
+    };
+    delete schemas[i].content.$schema;
+    delete schemas[i].content.definitions;
   }
 
   console.log(inspect(mainSchema, true, 100));

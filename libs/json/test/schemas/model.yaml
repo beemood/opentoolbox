@@ -2,3 +2,7 @@
 properties:
   name:
     type: string
+
+relations:
+  name:
+    type: many-to-many
