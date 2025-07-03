@@ -1,7 +1,7 @@
 {
   "name": "@opentoolbox/cli",
   "description": "cli",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "author": {
     "name": "Robert Brightline",
     "email": "robert.brightline@gmail.com",
