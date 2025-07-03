@@ -1,0 +1,277 @@
+{
+  "$schema": "https://json-schema.org/draft-07/schema#",
+  "title": "Model",
+  "properties": {
+    "properties": {
+      "patternProperties": {
+        "[a-zA-Z]{1,}": {
+          "$ref": "#/definitions/Property"
+        }
+      }
+    }
+  },
+  "definitions": {
+    "Property": {
+      "allOf": [
+        {
+          "$ref": "./common-property.schema.json"
+        },
+        {
+          "oneOf": [
+            {
+              "$ref": "./string-property.schema.json"
+            },
+            {
+              "$ref": "./number-property.schema.json"
+            },
+            {
+              "$ref": "./integer-property.schema.json"
+            },
+            {
+              "$ref": "./boolean-property.schema.json"
+            },
+            {
+              "$ref": "./object-property.schema.json"
+            },
+            {
+              "$ref": "./array-property.schema.json"
+            }
+          ]
+        }
+      ],
+      "required": [
+        "type"
+      ]
+    },
+    "Icon": {
+      "enum": [
+        "home"
+      ]
+    },
+    "IntegerFormat": {
+      "enum": [
+        "rate",
+        "percent"
+      ]
+    },
+    "ModelName": {
+      "enum": [
+        "User",
+        "Role",
+        "Permission",
+        "Product",
+        "Category"
+      ]
+    },
+    "NumberFormat": {
+      "enum": [
+        "rate",
+        "percent"
+      ]
+    },
+    "PropertyName": {
+      "enum": [
+        "id",
+        "createdAt",
+        "updatedAt",
+        "deletedAt",
+        "username",
+        "password",
+        "name",
+        "role",
+        "roles",
+        "permission",
+        "permissions",
+        "category"
+      ]
+    },
+    "PropertyType": {
+      "enum": [
+        "string",
+        "number",
+        "integer",
+        "boolean",
+        "object",
+        "array"
+      ]
+    },
+    "StringFormat": {
+      "enum": [
+        "email",
+        "password",
+        "phone"
+      ]
+    },
+    "ArrayProperty": {
+      "properties": {
+        "type": {
+          "const": "array"
+        },
+        "minSize": {
+          "type": "integer"
+        },
+        "maxSize": {
+          "type": "integer"
+        },
+        "items": {
+          "$ref": "#/definitions/Property"
+        },
+        "defaultValue": {
+          "type": "array"
+        }
+      },
+      "required": [
+        "type",
+        "items"
+      ]
+    },
+    "BooleanProperty": {
+      "properties": {
+        "type": {
+          "const": "boolean"
+        },
+        "defaultValue": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "type"
+      ]
+    },
+    "CommonProperty": {
+      "properties": {
+        "type": {
+          "$ref": "#/definitions/PropertyType"
+        },
+        "name": {
+          "$ref": "#/definitions/PropertyName"
+        },
+        "description": {
+          "type": "string"
+        },
+        "required": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "type"
+      ]
+    },
+    "IntegerProperty": {
+      "properties": {
+        "type": {
+          "const": "integer"
+        },
+        "minimum": {
+          "type": "integer"
+        },
+        "maximum": {
+          "type": "integer"
+        },
+        "isIn": {
+          "type": "array",
+          "items": {
+            "type": "integer"
+          }
+        },
+        "notIn": {
+          "type": "array",
+          "items": {
+            "type": "integer"
+          }
+        },
+        "format": {
+          "$ref": "#/definitions/IntegerFormat"
+        },
+        "defaultValue": {
+          "type": "integer"
+        }
+      },
+      "required": [
+        "type"
+      ]
+    },
+    "NumberProperty": {
+      "properties": {
+        "type": {
+          "const": "number"
+        },
+        "minimum": {
+          "type": "number"
+        },
+        "maximum": {
+          "type": "number"
+        },
+        "isIn": {
+          "type": "array",
+          "items": {
+            "type": "number"
+          }
+        },
+        "notIn": {
+          "type": "array",
+          "items": {
+            "type": "number"
+          }
+        },
+        "format": {
+          "$ref": "#/definitions/NumberFormat"
+        },
+        "defaultValue": {
+          "type": "number"
+        }
+      },
+      "required": [
+        "type"
+      ]
+    },
+    "ObjectProperty": {
+      "properties": {
+        "type": {
+          "const": "object"
+        },
+        "target": {
+          "$ref": "#/definitions/ModelName"
+        }
+      },
+      "required": [
+        "type"
+      ]
+    },
+    "StringProperty": {
+      "title": "StringProperty",
+      "properties": {
+        "type": {
+          "const": "string"
+        },
+        "minLength": {
+          "type": "integer"
+        },
+        "maxLength": {
+          "type": "integer"
+        },
+        "isIn": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "notIn": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "format": {
+          "$ref": "#/definitions/StringFormat"
+        },
+        "defaultValue": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "type"
+      ]
+    }
+  }
+}

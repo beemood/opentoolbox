@@ -9,5 +9,5 @@ export async function writeJsonFile<T extends object>(
   filepath: string,
   content: T
 ) {
-  await writeTextFile(filepath, JSON.stringify(content));
+  await writeTextFile(filepath, JSON.stringify(content, undefined, 2));
 }

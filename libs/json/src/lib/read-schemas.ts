@@ -1,5 +1,5 @@
 import { dirs } from '@opentoolbox/fs';
-import type { Directory } from '@opentoolbox/types';
+import type { Directory, JsonSchema } from '@opentoolbox/types';
 import { resolve } from 'path';
 
 export const SCHEMA_JSON_FILE_EXPRESSION = /.schema.json$/;
@@ -9,7 +9,9 @@ export const SCHEMA_JSON_FILE_EXPRESSION = /.schema.json$/;
  * @param root root directory path
  * @returns directories {@link !Directory}[]
  */
-export async function readSchemas(root: string): Promise<Directory[]> {
+export async function readSchemas(
+  root: string
+): Promise<Directory<JsonSchema>[]> {
   root = resolve(root);
   return await dirs(root, {
     recursive: true,

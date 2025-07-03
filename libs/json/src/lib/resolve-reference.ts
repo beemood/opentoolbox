@@ -1,6 +1,17 @@
 import type { JsonSchema } from '@opentoolbox/types';
-import { resolve } from 'path';
+import { names, valueOrThrow } from '@opentoolbox/utils';
+import { basename } from 'path';
 import { isDefinitionRef } from './is-definition-ref.js';
+
+export function toDefinitionNameFromReferencePath(referencePath: string) {
+  const filename = basename(referencePath);
+  const shortFilename = valueOrThrow(filename.split('.').shift());
+  return names(shortFilename).className;
+}
+
+export function toDefinitionPath(definitionName: string) {
+  return `#/definitions/${definitionName}`;
+}
 
 /**
  * Resolve all $ref values in the {@link schema} object
@@ -8,12 +19,13 @@ import { isDefinitionRef } from './is-definition-ref.js';
  * @param schema {@link !JsonSchema}
  * @returns schema {@link !JsonSchema}
  */
-export function resolveReference(root: string, schema: JsonSchema): JsonSchema {
+export function resolveReference(root: string, schema: JsonSchema) {
   const entries = Object.entries(schema);
 
   // If $ref and $ref is not definition reference, then resolve $ref value
   if (schema.$ref && !isDefinitionRef(schema.$ref)) {
-    schema.$ref = resolve(root, schema.$ref);
+    const definitionName = toDefinitionNameFromReferencePath(schema.$ref);
+    schema.$ref = toDefinitionPath(definitionName);
   }
 
   for (const [key, value] of entries) {
@@ -25,5 +37,4 @@ export function resolveReference(root: string, schema: JsonSchema): JsonSchema {
       resolveReference(root, value);
     }
   }
-  return schema;
 }
