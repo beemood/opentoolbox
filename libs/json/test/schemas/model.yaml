@@ -1,5 +1,4 @@
-# yaml-language-server: $schema=./model.schema.json
-properties: 
-  name: 
+# yaml-language-server: $schema=./model.schema.json.build.json
+properties:
+  name:
     type: string
-

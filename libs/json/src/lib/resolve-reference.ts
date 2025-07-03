@@ -35,6 +35,12 @@ export function resolveReference(root: string, schema: JsonSchema) {
     // If the value is object, then resolve $ref
     if (typeof value === 'object' && !Array.isArray(value)) {
       resolveReference(root, value);
+    } else if (Array.isArray(value)) {
+      for (const e of value) {
+        if (typeof e === 'object') {
+          resolveReference(root, e);
+        }
+      }
     }
   }
 }

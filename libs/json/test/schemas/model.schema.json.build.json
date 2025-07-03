@@ -14,27 +14,27 @@
     "Property": {
       "allOf": [
         {
-          "$ref": "./common-property.schema.json"
+          "$ref": "#/definitions/CommonProperty"
         },
         {
           "oneOf": [
             {
-              "$ref": "./string-property.schema.json"
+              "$ref": "#/definitions/StringProperty"
             },
             {
-              "$ref": "./number-property.schema.json"
+              "$ref": "#/definitions/NumberProperty"
             },
             {
-              "$ref": "./integer-property.schema.json"
+              "$ref": "#/definitions/IntegerProperty"
             },
             {
-              "$ref": "./boolean-property.schema.json"
+              "$ref": "#/definitions/BooleanProperty"
             },
             {
-              "$ref": "./object-property.schema.json"
+              "$ref": "#/definitions/ObjectProperty"
             },
             {
-              "$ref": "./array-property.schema.json"
+              "$ref": "#/definitions/ArrayProperty"
             }
           ]
         }
