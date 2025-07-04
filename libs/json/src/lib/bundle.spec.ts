@@ -4,15 +4,9 @@ import { bundle } from './bundle.js';
 
 describe('bundle', () => {
   it('should bundle schemas', async () => {
-    await bundle(
-      join(
-        workspaceRoot,
-        'libs',
-        'json',
-        'test',
-        'schemas',
-        'model.schema.json'
-      )
-    );
+    const rootpath = join(workspaceRoot, 'libs', 'json', 'schemas');
+    const mainSchemaPath = join(rootpath, 'model.schema.json');
+    const distPath = join(rootpath, 'model.json');
+    await bundle(mainSchemaPath, distPath);
   });
 });

@@ -21,9 +21,24 @@
       "propertyNames": {
         "$ref": "#/definitions/PropertyName"
       }
+    },
+    "uniques": {
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/PropertyName"
+      }
     }
   },
   "definitions": {
+    "Generated": {
+      "enum": [
+        "id",
+        "uuid",
+        "createdAt",
+        "updatedAt",
+        "deletedAt"
+      ]
+    },
     "Icon": {
       "enum": [
         "home"
@@ -145,6 +160,18 @@
         },
         "required": {
           "type": "boolean"
+        },
+        "unique": {
+          "type": "boolean"
+        },
+        "readOnly": {
+          "type": "boolean"
+        },
+        "writeOnly": {
+          "type": "boolean"
+        },
+        "generated": {
+          "$ref": "#/definitions/Generated"
         }
       },
       "required": [

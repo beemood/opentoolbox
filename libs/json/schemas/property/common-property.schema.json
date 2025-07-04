@@ -8,7 +8,7 @@
     "unique": { "type": "boolean" },
     "readOnly": { "type": "boolean" },
     "writeOnly": { "type": "boolean" },
-    "generated": {}
+    "generated": { "$ref": "../enum/generated.schema.json" }
   },
   "required": ["type"]
 }

@@ -11,4 +11,9 @@ export enum ErrorCode {
    * Thrown when search returns undefined
    */
   NOT_FOUND = 2000,
+
+  /**
+   * Throw when the input or access is not allowed
+   */
+  NOT_ALLOWED = 3000,
 }

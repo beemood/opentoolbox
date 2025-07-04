@@ -1,8 +1,0 @@
-# yaml-language-server: $schema=./model.schema.json.build.json
-properties:
-  name:
-    type: string
-
-relations:
-  name:
-    type: many-to-many
