@@ -46,6 +46,9 @@ export function parseType(schema: JsonSchema): string {
       .map(([key, value]) => {
         const isRequired = requiredItems.includes(key) ? '' : '?';
 
+        if (key === 'target') {
+          return `target${isRequired}: T`;
+        }
         return `${key}${isRequired}:${parseType(value)}`;
       })
       .join('\n');
@@ -83,13 +86,13 @@ export function bundleTypes(name: string, schema: JsonSchema) {
   const types: string[] = [];
 
   {
-    types.push(`export type ${name} = ${parseType(schema)}`);
+    types.push(`export type ${name}<T=any> = ${parseType(schema)}`);
   }
 
   if (schema.definitions) {
     const entries = Object.entries(schema.definitions);
     for (const [key, value] of entries) {
-      types.push(`export type ${key} = ${parseType(value)}`);
+      types.push(`export type ${key}<T = any> = ${parseType(value)}`);
     }
   }
 
