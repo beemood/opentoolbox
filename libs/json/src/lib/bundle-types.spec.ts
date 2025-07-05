@@ -14,6 +14,5 @@ describe('bundleTypes', () => {
     const result = bundleTypes('Model', schemaFilePath);
 
     await writeTextFile(distSchemaFilepath, result);
-    console.log(result);
   });
 });

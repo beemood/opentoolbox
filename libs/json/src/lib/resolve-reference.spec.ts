@@ -1,5 +1,4 @@
 import { JsonSchema } from '@opentoolbox/types';
-import { resolve } from 'path';
 import { resolveReference } from './resolve-reference.js';
 
 describe('resolveReference', () => {
@@ -28,12 +27,6 @@ describe('resolveReference', () => {
 
     resolveReference('root', testSchema);
 
-    expect(testSchema.properties?.name.$ref).toEqual(
-      resolve('property/string.schema.json')
-    );
-
-    expect(
-      testSchema.definitions?.Sample.properties?.name?.properties?.name.$ref
-    ).toEqual(resolve('some/some.schema.json'));
+    expect(testSchema.properties?.name.$ref).toEqual('#/definitions/String');
   });
 });

@@ -1,5 +1,4 @@
 import { NotFoundError } from '@opentoolbox/errors';
-import { writeJsonFile } from '@opentoolbox/fs';
 import { dirname, resolve } from 'path';
 import { extractSchemaContents } from './extract-scheme-contents.js';
 import { readSchemas } from './read-schemas.js';
@@ -18,7 +17,7 @@ export type BundleOptions = {
  * @param options
  * @returns list of directories {@link !Directory}[]
  */
-export async function bundle(mainSchemaFilepath: string, outputPath: string) {
+export async function bundle(mainSchemaFilepath: string) {
   mainSchemaFilepath = resolve(mainSchemaFilepath);
   const rootDirectory = dirname(mainSchemaFilepath);
   const directories = await readSchemas(rootDirectory);
@@ -53,5 +52,5 @@ export async function bundle(mainSchemaFilepath: string, outputPath: string) {
     delete schemas[i].content.definitions;
   }
 
-  await writeJsonFile(outputPath, mainSchema.content);
+  return mainSchema.content;
 }
